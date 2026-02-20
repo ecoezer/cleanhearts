@@ -27,7 +27,7 @@ export default function Booking() {
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">Termin Buchen</h1>
                         <p className="text-lg text-gray-600">
-                            Wählen Sie den gewünschten Umfang und wir melden uns schnellstmöglich bei Ihnen.
+                            Wähle den gewünschten Umfang und wir melden uns schnellstmöglich bei dir.
                         </p>
                     </div>
 
@@ -75,7 +75,7 @@ export default function Booking() {
                                             }`}
                                     >
                                         <div className="font-semibold text-lg text-gray-900">Stelle ich selbst</div>
-                                        <div className="text-gray-500 mt-1">Sie stellen alle Materialien</div>
+                                        <div className="text-gray-500 mt-1">Du stellst alle Materialien</div>
                                         <div className="mt-4 text-primary font-bold">24,90€ / Std</div>
                                     </button>
 
@@ -118,7 +118,7 @@ export default function Booking() {
                             </div>
 
                             <p className="text-center text-sm text-gray-500 mt-4 leading-relaxed">
-                                * Sie werden zu WhatsApp weitergeleitet, um die Details zu besprechen. Es ist noch keine verbindliche Buchung.<br />
+                                * Du wirst zu WhatsApp weitergeleitet, um die Details zu besprechen. Es ist noch keine verbindliche Buchung.<br />
                                 Auf Wunsch kann eine Rechnung ausgestellt werden.
                             </p>
 

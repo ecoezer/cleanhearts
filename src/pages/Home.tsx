@@ -16,7 +16,7 @@ export default function Home() {
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Wir legen Wert auf höchste Qualität, Pünktlichkeit und Vertrauen.
                             Unsere geschulten Mitarbeiter nutzen moderne Reinigungsmaterialien
-                            und hinterlassen Ihre Räumlichkeiten makellos.
+                            und hinterlassen deine Räumlichkeiten makellos.
                         </p>
                     </div>
                 </section>

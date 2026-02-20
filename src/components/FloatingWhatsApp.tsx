@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
         >
             <MessageCircle className="w-8 h-8" />
             <span className="absolute right-full mr-4 bg-white text-gray-800 px-4 py-2 rounded-xl text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
-                Fragen? Schreiben Sie uns!
+                Fragen? Schreib uns!
             </span>
         </a>
     );

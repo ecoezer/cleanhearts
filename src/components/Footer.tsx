@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
                             <img src="/logo.png" alt="CleanHearts Logo" className="h-10 w-auto" />
                         </div>
                         <p className="text-gray-400">
-                            Ihre zuverlässige Reinigungsfirma. Wir bringen Glanz in Ihr Leben.
+                            Deine zuverlässige Reinigungsfirma. Wir bringen Glanz in dein Leben.
                         </p>
                     </div>
 
@@ -37,7 +38,7 @@ export default function Footer() {
                     <div className="flex flex-col items-center md:items-start">
                         <h3 className="text-lg font-semibold mb-6">Rechtliches</h3>
                         <ul className="space-y-4 text-gray-400">
-                            <li><a href="#" className="hover:text-white transition-colors">Impressum</a></li>
+                            <li><Link to="/impressum" className="hover:text-white transition-colors">Impressum</Link></li>
                             <li><a href="#" className="hover:text-white transition-colors">Datenschutz</a></li>
                             <li><a href="#" className="hover:text-white transition-colors">AGB</a></li>
                         </ul>

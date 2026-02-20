@@ -4,6 +4,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
+import Impressum from './pages/Impressum';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/book" element={<Booking />} />
+        <Route path="/impressum" element={<Impressum />} />
       </Routes>
       <ScrollToTop />
       <FloatingWhatsApp />

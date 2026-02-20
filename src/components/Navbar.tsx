@@ -25,7 +25,7 @@ export default function Navbar() {
                             to="/book"
                             className="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary-dark transition-all transform hover:scale-105 shadow-md hover:shadow-lg"
                         >
-                            Termin buchen
+                            Mein Termin buchen
                         </Link>
                     </div>
 
@@ -66,7 +66,7 @@ export default function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="bg-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-primary-dark transition-colors shadow-md w-full text-center block"
                             >
-                                Termin buchen
+                                Mein Termin buchen
                             </Link>
                         </div>
                     </div>

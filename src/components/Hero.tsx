@@ -20,7 +20,7 @@ export default function Hero() {
 
                 <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
                     Professionelle <span className="text-primary">Reinigung</span><br />
-                    für Ihr Wohlbefinden
+                    für dein Wohlbefinden
                 </h1>
 
                 <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10">
@@ -33,7 +33,7 @@ export default function Hero() {
                         to="/book"
                         className="w-full sm:w-auto px-8 py-4 bg-primary text-white text-lg font-semibold rounded-full hover:bg-primary-dark transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
                     >
-                        Jetzt Termin buchen
+                        Mein Termin buchen
                     </Link>
                     <a
                         href="tel:01638523779"
