@@ -19,14 +19,14 @@ export default function Hero() {
                     <Sparkles className="w-3 h-3 relative z-10 animate-bounce text-accent" style={{ animationDuration: '2s' }} />
                 </div>
 
-                <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
-                    Professionelle <span className="text-primary">Reinigung</span><br />
-                    für dein Wohlbefinden
+                <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
+                    Professionelle <span className="text-primary underline decoration-accent/20">Haushaltsreinigung</span><br />
+                    in Köln & Umgebung
                 </h1>
 
-                <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-                    Ob Haushalt, Praxis oder Gewerbe – wir sorgen für strahlende Sauberkeit.
-                    Zuverlässig, gründlich und zu fairen Preisen.
+                <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Deine zuverlässige Putzfirma für Köln, Pulheim, Frechen und Hürth.
+                    Ob Privathaushalt, Praxis oder Gewerbe – wir sorgen mit Herz für strahlende Sauberkeit.
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
