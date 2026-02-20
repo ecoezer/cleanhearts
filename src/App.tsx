@@ -6,6 +6,7 @@ import ScrollToTopOnNavigation from './components/ScrollToTopOnNavigation';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import Impressum from './pages/Impressum';
+import Datenschutz from './pages/Datenschutz';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/book" element={<Booking />} />
         <Route path="/impressum" element={<Impressum />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>
       <ScrollToTop />
       <FloatingWhatsApp />
