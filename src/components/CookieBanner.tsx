@@ -26,49 +26,47 @@ export default function CookieBanner() {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 animate-in slide-in-from-bottom-full duration-500">
-            <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-[0_-20px_50px_-12px_rgba(0,0,0,0.15)] border border-gray-100 p-6 md:p-8 relative overflow-hidden">
+        <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 animate-in slide-in-from-bottom-full duration-500">
+            <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-[0_-10px_40px_-12px_rgba(0,0,0,0.15)] border border-gray-100 p-5 md:p-6 relative overflow-hidden">
                 {/* Decoration */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 blur-2xl"></div>
 
-                <div className="relative z-10 flex flex-col items-center text-center gap-6">
-                    <div className="flex-shrink-0 bg-primary/10 p-4 rounded-2xl">
-                        <Cookie className="w-8 h-8 text-primary animate-pulse" />
+                <div className="relative z-10 flex flex-col items-center text-center gap-4">
+                    <div className="flex-shrink-0 bg-primary/10 p-2 rounded-xl">
+                        <Cookie className="w-6 h-6 text-primary" />
                     </div>
 
-                    <div className="max-w-2xl mx-auto">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center justify-center">
+                    <div className="max-w-xl mx-auto">
+                        <h3 className="text-lg font-bold text-gray-900 mb-1 flex items-center justify-center">
                             COOKIE-EINWILLIGUNG
-                            <ShieldCheck className="w-5 h-5 ml-2 text-green-500" />
+                            <ShieldCheck className="w-4 h-4 ml-1.5 text-green-500" />
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        <p className="text-gray-600 text-xs leading-relaxed mb-3">
                             Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen sowie zur Analyse der Website-Nutzung (Google Analytics).
-                            Mit Klick auf <span className="font-semibold">„Alle akzeptieren“</span> stimmen Sie der Verwendung aller Cookies zu.
-                            Mit Klick auf <span className="font-semibold">„Nur notwendige Cookies“</span> werden nur technisch erforderliche Cookies gesetzt.
+                            Klicken Sie auf <span className="font-semibold">„Alle akzeptieren“</span> für volle Funktionalität oder <span className="font-semibold">„Nur notwendige“</span>.
                         </p>
-                        <p className="text-xs text-gray-400">
-                            Weitere Informationen finden Sie in unserer{' '}
-                            <Link to="/datenschutz" className="text-primary hover:underline font-medium">Datenschutzerklärung</Link>.
+                        <p className="text-[10px] text-gray-400">
+                            Details in der <Link to="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</Link>.
                         </p>
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-3 w-full">
+                    <div className="flex flex-wrap justify-center gap-2 w-full">
                         <button
                             onClick={() => { }}
-                            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors text-sm min-w-[140px]"
+                            className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors text-xs min-w-[110px]"
                         >
-                            <Settings className="w-4 h-4" />
+                            <Settings className="w-3.5 h-3.5" />
                             Einstellungen
                         </button>
                         <button
                             onClick={handleAcceptNecessary}
-                            className="px-6 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors text-sm min-w-[140px]"
+                            className="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors text-xs min-w-[110px]"
                         >
-                            Nur notwendige Cookies
+                            Nur notwendige
                         </button>
                         <button
                             onClick={handleAcceptAll}
-                            className="px-10 py-2.5 rounded-xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 text-sm whitespace-nowrap min-w-[140px]"
+                            className="px-6 py-2 rounded-lg bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-md shadow-primary/20 text-xs min-w-[110px]"
                         >
                             Alle akzeptieren
                         </button>
@@ -77,9 +75,9 @@ export default function CookieBanner() {
 
                 <button
                     onClick={() => setIsVisible(false)}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors"
                 >
-                    <X className="w-5 h-5" />
+                    <X className="w-4 h-4" />
                 </button>
             </div>
         </div>
