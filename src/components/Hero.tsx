@@ -4,10 +4,10 @@ import { Leaf, Sparkles, CheckCircle2 } from 'lucide-react';
 export default function Hero() {
     return (
         <section className="relative bg-gradient-to-br from-primary-light/20 via-white to-accent/20 overflow-hidden pt-20 pb-32">
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 opacity-10">
+            <div className="absolute top-10 right-10 opacity-10">
                 <Leaf className="w-96 h-96 text-dark-green" />
             </div>
-            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 opacity-10">
+            <div className="absolute bottom-10 left-10 opacity-10">
                 <Leaf className="w-96 h-96 text-dark-green transform -scale-x-100" />
             </div>
 

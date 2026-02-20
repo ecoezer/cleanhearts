@@ -2,8 +2,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8 border-t border-primary/70 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/logo.png')] opacity-5 bg-repeat bg-center mix-blend-overlay"></div>
+        <footer className="bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 text-white pt-16 pb-8 border-t border-primary/70 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                     <div>
