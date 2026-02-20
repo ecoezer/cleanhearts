@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopOnNavigation from './components/ScrollToTopOnNavigation';
+import CookieBanner from './components/CookieBanner';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
 import Impressum from './pages/Impressum';
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <ScrollToTopOnNavigation />
+      <CookieBanner />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
