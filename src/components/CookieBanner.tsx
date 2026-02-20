@@ -31,13 +31,13 @@ export default function CookieBanner() {
                 {/* Decoration */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
 
-                <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div className="relative z-10 flex flex-col items-center text-center gap-6">
                     <div className="flex-shrink-0 bg-primary/10 p-4 rounded-2xl">
                         <Cookie className="w-8 h-8 text-primary animate-pulse" />
                     </div>
 
-                    <div className="flex-grow">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center">
+                    <div className="max-w-2xl mx-auto">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center justify-center">
                             COOKIE-EINWILLIGUNG
                             <ShieldCheck className="w-5 h-5 ml-2 text-green-500" />
                         </h3>
@@ -52,23 +52,23 @@ export default function CookieBanner() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
+                    <div className="flex flex-wrap justify-center gap-3 w-full">
                         <button
-                            onClick={() => { }} // Open settings logic if needed, for now just placeholder
-                            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors text-sm"
+                            onClick={() => { }}
+                            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors text-sm min-w-[140px]"
                         >
                             <Settings className="w-4 h-4" />
                             Einstellungen
                         </button>
                         <button
                             onClick={handleAcceptNecessary}
-                            className="px-6 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors text-sm"
+                            className="px-6 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition-colors text-sm min-w-[140px]"
                         >
                             Nur notwendige Cookies
                         </button>
                         <button
                             onClick={handleAcceptAll}
-                            className="px-8 py-2.5 rounded-xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 text-sm whitespace-nowrap"
+                            className="px-10 py-2.5 rounded-xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/20 text-sm whitespace-nowrap min-w-[140px]"
                         >
                             Alle akzeptieren
                         </button>
