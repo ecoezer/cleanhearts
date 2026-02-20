@@ -117,8 +117,9 @@ export default function Booking() {
                                 </button>
                             </div>
 
-                            <p className="text-center text-sm text-gray-500 mt-4">
-                                Sie werden zu WhatsApp weitergeleitet, um die Details zu besprechen. Es ist noch keine verbindliche Buchung.
+                            <p className="text-center text-sm text-gray-500 mt-4 leading-relaxed">
+                                * Sie werden zu WhatsApp weitergeleitet, um die Details zu besprechen. Es ist noch keine verbindliche Buchung.<br />
+                                Auf Wunsch kann eine Rechnung ausgestellt werden.
                             </p>
 
                         </form>

@@ -2,12 +2,13 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-white pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8 border-t border-primary/20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/logo.svg')] opacity-5 bg-repeat bg-center mix-blend-overlay"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                     <div>
                         <div className="flex items-center space-x-2 mb-6 bg-white p-2 rounded-lg inline-block">
-                            <img src="/logo.svg" alt="CleanHearts Logo" className="h-10 w-auto" />
+                            <img src="/logo.png" alt="CleanHearts Logo" className="h-10 w-auto" />
                         </div>
                         <p className="text-gray-400">
                             Ihre zuverlässige Reinigungsfirma. Wir bringen Glanz in Ihr Leben.
