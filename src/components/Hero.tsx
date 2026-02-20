@@ -12,10 +12,11 @@ export default function Hero() {
             </div>
 
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div className="relative overflow-hidden inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-primary mb-8 shadow-lg border border-primary/10">
-                    <div className="absolute top-0 left-0 w-full h-full -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/80 to-transparent z-0 pointer-events-none"></div>
-                    <Sparkles className="w-4 h-4 relative z-10 animate-pulse" style={{ animationDuration: '3s' }} />
-                    <span className="relative z-10">Strahlend sauber, mit Herz</span>
+                <div className="relative overflow-hidden inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-bold text-primary mb-8 shadow-xl border border-primary/20 hover:scale-105 transition-transform cursor-default group">
+                    <div className="absolute top-0 left-0 w-full h-full -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white to-transparent z-0 pointer-events-none"></div>
+                    <Sparkles className="w-4 h-4 relative z-10 animate-pulse text-accent" style={{ animationDuration: '1.5s' }} />
+                    <span className="relative z-10 tracking-wide">Strahlend sauber, mit Herz</span>
+                    <Sparkles className="w-3 h-3 relative z-10 animate-bounce text-accent" style={{ animationDuration: '2s' }} />
                 </div>
 
                 <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">

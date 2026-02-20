@@ -1,35 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #806b9b;
-  --primary-light: #a694bf;
-  --primary-dark: #5a4b6e;
-  --accent: #e5b3c4;
-  --dark-green: #2c4c3b;
-}
-
-.theme-vibrant {
   --primary: #6d28d9;
   --primary-light: #8b5cf6;
   --primary-dark: #4c1d95;
   --accent: #ec4899;
   --dark-green: #22c55e;
-}
-
-.theme-ocean {
-  --primary: #0284c7;
-  --primary-light: #7dd3fc;
-  --primary-dark: #0369a1;
-  --accent: #14b8a6;
-  --dark-green: #0d9488;
-}
-
-.theme-pastel {
-  --primary: #a78bfa;
-  --primary-light: #ede9fe;
-  --primary-dark: #7c3aed;
-  --accent: #fbcfe8;
-  --dark-green: #4ade80;
 }
 
 @theme {
@@ -39,7 +15,7 @@
   --color-accent: var(--accent);
   --color-dark-green: var(--dark-green);
 
-  --animate-shimmer: shimmer 2.5s infinite linear;
+  --animate-shimmer: shimmer 1.8s infinite linear;
 
   @keyframes shimmer {
     0% {
