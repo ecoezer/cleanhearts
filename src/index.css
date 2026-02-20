@@ -6,6 +6,18 @@
   --color-primary-dark: #5a4b6e;
   --color-accent: #e5b3c4;
   --color-dark-green: #2c4c3b;
+
+  --animate-shimmer: shimmer 2.5s infinite linear;
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-150%) skewX(-15deg);
+    }
+
+    100% {
+      transform: translateX(150%) skewX(-15deg);
+    }
+  }
 }
 
 @layer base {
