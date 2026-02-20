@@ -18,31 +18,49 @@ export default function Impressum() {
 
                     <div className="space-y-12">
                         <section>
-                            <h2 className="text-xl font-semibold text-primary mb-4 uppercase tracking-wider">Betriebsadresse</h2>
+                            <h2 className="text-sm font-bold text-primary mb-4 uppercase tracking-widest">Angaben gemäß § 5 TMG</h2>
                             <p className="text-2xl text-gray-800 font-medium leading-relaxed">
+                                E. Yilmaz<br />
+                                Fasanenweg 1<br />
+                                50259 Pulheim<br />
+                                Deutschland
+                            </p>
+                        </section>
+
+                        <section className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
+                            <h2 className="text-xl font-bold text-primary mb-4">Kontakt</h2>
+                            <p className="text-gray-700 leading-relaxed font-medium">
+                                Telefon: 0163 8523779<br />
+                                E-Mail: <a href="mailto:info@cleanhearts.de" className="hover:underline">info@cleanhearts.de</a>
+                            </p>
+                        </section>
+
+                        <section className="prose prose-purple max-w-none">
+                            <h2 className="text-xl font-bold text-gray-900 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+                            <p className="text-gray-600 leading-relaxed">
                                 E. Yilmaz<br />
                                 Fasanenweg 1<br />
                                 50259 Pulheim
                             </p>
                         </section>
 
-                        <section className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
-                            <h2 className="text-xl font-semibold text-primary mb-4">Kontakt</h2>
-                            <p className="text-gray-700 leading-relaxed">
-                                Telefon: 01638523779<br />
-                                E-Mail: info@cleanhearts.de<br />
-                                Webseite: www.cleanhearts.de
-                            </p>
-                        </section>
-
-                        <section className="prose prose-purple max-w-none">
-                            <h2 className="text-xl font-semibold text-gray-900 mb-4">Haftungsausschluss</h2>
+                        <section className="prose prose-purple max-w-none border-t border-gray-100 pt-8">
+                            <h2 className="text-xl font-bold text-gray-900 mb-4">Streitschlichtung</h2>
                             <p className="text-gray-600 mb-4">
-                                Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+                                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
                             </p>
-                            <h2 className="text-xl font-semibold text-gray-900 mb-4">Urheberrecht</h2>
+                            <p className="mb-6">
+                                <a
+                                    href="https://ec.europa.eu/consumers/odr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary font-semibold hover:underline bg-primary/5 px-4 py-2 rounded-lg"
+                                >
+                                    https://ec.europa.eu/consumers/odr
+                                </a>
+                            </p>
                             <p className="text-gray-600">
-                                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                                Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                             </p>
                         </section>
                     </div>
