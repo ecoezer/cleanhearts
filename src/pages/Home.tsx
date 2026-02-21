@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import Benefits from '../components/Benefits';
 import Services from '../components/Services';
 import Footer from '../components/Footer';
 
@@ -7,6 +8,7 @@ export default function Home() {
         <div className="flex flex-col min-h-screen">
             <main className="flex-grow">
                 <Hero />
+                <Benefits />
                 <Services />
 
                 {/* About/Trust Section */}
