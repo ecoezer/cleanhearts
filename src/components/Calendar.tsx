@@ -34,8 +34,8 @@ export default function Calendar({ selectedDate, onSelect, onClose }: CalendarPr
 
     const isDateDisabled = (year: number, month: number, day: number) => {
         const d = new Date(year, month, day);
-        // Disable past dates and weekends (0 = Sunday, 6 = Saturday)
-        return d < today || d.getDay() === 0 || d.getDay() === 6;
+        // Disable past dates and Sundays (0 = Sunday)
+        return d < today || d.getDay() === 0;
     };
 
 
