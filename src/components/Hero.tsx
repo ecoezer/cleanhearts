@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Leaf, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Leaf, Sparkles, CheckCircle2, Phone } from 'lucide-react';
 
 export default function Hero() {
     return (
@@ -38,13 +38,16 @@ export default function Hero() {
                     </Link>
                     <a
                         href="tel:01638523779"
-                        className="w-full sm:w-auto px-8 py-4 bg-white text-primary text-lg font-semibold rounded-full border-2 border-primary/20 hover:border-primary transition-all flex items-center justify-center gap-2 shadow-sm"
+                        className="group w-full sm:w-auto px-8 py-5 bg-dark-green text-white text-lg font-bold rounded-full hover:bg-green-600 transition-all transform hover:scale-105 shadow-xl shadow-dark-green/30 flex items-center justify-center gap-3 animate-pulse hover:animate-none"
+                        style={{ animationDuration: '2.5s' }}
                     >
-                        Rückruf anfordern
+                        <Phone className="w-6 h-6 group-hover:animate-bounce" />
+                        <span className="text-xl">0163 852 3779</span>
+                        <span className="hidden sm:inline text-white/80 text-base font-medium">— Jetzt anrufen!</span>
                     </a>
                 </div>
 
-                <div className="mt-16 flex justify-center space-x-8 text-sm md:text-base text-gray-600">
+                <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm md:text-base text-gray-600">
                     <div className="flex items-center space-x-2">
                         <CheckCircle2 className="w-5 h-5 text-dark-green" />
                         <span>Mit Rechnung</span>
@@ -56,6 +59,10 @@ export default function Hero() {
                     <div className="flex items-center space-x-2">
                         <CheckCircle2 className="w-5 h-5 text-dark-green" />
                         <span>Schnelle Termine</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <CheckCircle2 className="w-5 h-5 text-dark-green" />
+                        <span>Kostenlose Erstberatung</span>
                     </div>
                 </div>
             </div>

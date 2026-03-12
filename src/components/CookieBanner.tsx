@@ -43,7 +43,7 @@ export default function CookieBanner() {
                         </h3>
                         <p className="text-gray-600 text-xs leading-relaxed mb-3">
                             Unsere Website verwendet Cookies, um grundlegende Funktionen bereitzustellen sowie zur Analyse der Website-Nutzung (Google Analytics).
-                            Klicken Sie auf <span className="font-semibold">„Alle akzeptieren“</span> für volle Funktionalität oder <span className="font-semibold">„Nur notwendige“</span>.
+                            Klicke auf <span className="font-semibold">„Alle akzeptieren"</span> für volle Funktionalität oder <span className="font-semibold">„Nur notwendige"</span>.
                         </p>
                         <p className="text-[10px] text-gray-400">
                             Details in der <Link to="/datenschutz" className="text-primary hover:underline">Datenschutzerklärung</Link>.

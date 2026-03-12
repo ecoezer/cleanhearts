@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Clock, Droplets, Euro, CalendarCheck, Calendar as CalendarIcon } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Clock, Droplets, Euro, CalendarCheck, Calendar as CalendarIcon, Gift, Check, Home, Building2, Sparkles } from 'lucide-react';
 import Footer from '../components/Footer';
 import Calendar from '../components/Calendar';
 import TimePicker from '../components/TimePicker';
@@ -7,6 +8,12 @@ import TimePicker from '../components/TimePicker';
 
 
 export default function Booking() {
+    const location = useLocation();
+    const initialServiceType = location.state?.serviceType as 'privat' | 'buero' | undefined;
+    const initialIsFirstTime = location.state?.isFirstTime as boolean | undefined;
+
+    const [serviceType, setServiceType] = useState<'privat' | 'buero'>(initialServiceType || 'privat');
+    const [isFirstTime, setIsFirstTime] = useState<boolean>(initialIsFirstTime || false);
     const [hours, setHours] = useState<number>(2.0);
     const [needsSupplies, setNeedsSupplies] = useState<boolean>(false);
     const [date, setDate] = useState<string>(new Date().toISOString().split('T')[0]);
@@ -48,25 +55,35 @@ export default function Booking() {
 
 
     // Hourly rates
+    const bueroRate = 45.00;
     const rateWithSupplies = 29.90;
     const rateWithoutSupplies = 26.90;
 
 
-    const currentRate = needsSupplies ? rateWithSupplies : rateWithoutSupplies;
+    let currentRate = serviceType === 'buero' ? bueroRate : (needsSupplies ? rateWithSupplies : rateWithoutSupplies);
+    if (serviceType === 'privat' && isFirstTime) {
+        currentRate = currentRate * 0.8; // 20% discount
+    }
+
     const totalPrice = hours * currentRate;
+    const hasFreeExtras = serviceType === 'privat' && hours >= 3;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (!date || !time) {
-            alert('Bitte wählen Sie ein Datum und eine Uhrzeit aus.');
+            alert('Bitte wähle ein Datum und eine Uhrzeit aus.');
             return;
         }
 
         const [year, month, day] = date.split('-');
         const formattedDate = `${day}.${month}.${year}`;
 
-        const whatsappMessage = `Hallo! Ich möchte eine Reinigung buchen:\n\n📅 Termin: ${formattedDate} um ${time} Uhr\n\n⏱️ Dauer: ${hours} Stunden\n🧼 Reinigungsmittel von CleanHearts: ${needsSupplies ? 'Ja' : 'Nein'}\n💰 Voraussichtlicher Preis: ${totalPrice.toFixed(2).replace('.', ',')}€\n\nBitte um Rückmeldung zur Terminvereinbarung.`;
+        const serviceLabel = serviceType === 'buero' ? 'Büroreinigung' : 'Privat-Reinigung';
+        const suppliesText = serviceType === 'buero' ? '' : `\n🧼 Reinigungsmittel von CleanHearts: ${needsSupplies ? 'Ja' : 'Nein'}`;
+        const discountText = (serviceType === 'privat' && isFirstTime) ? '\n🎉 20% Neukunden-Rabatt angewendet!' : '';
+        const freeExtrasText = hasFreeExtras ? '\n\n🎁 Gratis Zusatzleistung (ab 3 Std.):\n✅ Kühlschrankreinigung\n✅ Backofenreinigung' : '';
+        const whatsappMessage = `Hallo! Ich möchte eine ${serviceLabel} buchen:\n\n📅 Termin: ${formattedDate} um ${time} Uhr\n\n⏱️ Dauer: ${hours} Stunden${suppliesText}${discountText}\n💰 Voraussichtlicher Preis: ${totalPrice.toFixed(2).replace('.', ',')}€${freeExtrasText}\n\nBitte um Rückmeldung zur Terminvereinbarung.`;
         window.open(`https://wa.me/491638523779?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
     };
 
@@ -92,8 +109,8 @@ export default function Booking() {
 
                             <div className="flex justify-between items-start mb-10">
                                 <div className="space-y-1">
-                                    <h2 className="text-3xl font-bold text-gray-900">Privat-Reinigung</h2>
-                                    <p className="text-gray-500 font-medium">Unser beliebtester Buchungsweg</p>
+                                    <h2 className="text-3xl font-bold text-gray-900">{serviceType === 'buero' ? 'Büroreinigung' : 'Privat-Reinigung'}</h2>
+                                    <p className="text-gray-500 font-medium">{serviceType === 'buero' ? 'Professionell & zuverlässig' : 'Unser beliebtester Buchungsweg'}</p>
                                 </div>
                                 {hours === 3 && (
                                     <span className="bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full tracking-wider uppercase animate-[scale-in_0.3s_ease-out] shadow-sm ring-1 ring-primary/20">
@@ -104,6 +121,50 @@ export default function Booking() {
                             </div>
 
                             <form onSubmit={handleSubmit} className="space-y-10">
+
+                                {/* Service Type Selection */}
+                                <div>
+                                    <label className="flex items-center space-x-2 text-lg font-semibold text-gray-900 mb-4">
+                                        <CalendarCheck className="w-6 h-6 text-primary" />
+                                        <span>Art der Reinigung</span>
+                                    </label>
+                                    <div className="grid sm:grid-cols-2 gap-4">
+                                        <button
+                                            type="button"
+                                            onClick={() => setServiceType('privat')}
+                                            className={`p-5 rounded-2xl border-2 text-left transition-all flex items-start gap-4 ${serviceType === 'privat'
+                                                ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
+                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                                                }`}
+                                        >
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${serviceType === 'privat' ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'}`}>
+                                                <Home className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold text-lg text-gray-900">Privat-Reinigung</div>
+                                                <div className="text-gray-500 text-sm mt-0.5">Für dein Zuhause</div>
+                                                <div className="mt-2 text-primary font-bold text-sm">ab 26,90€ / Std</div>
+                                            </div>
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => { setServiceType('buero'); setNeedsSupplies(false); }}
+                                            className={`p-5 rounded-2xl border-2 text-left transition-all flex items-start gap-4 ${serviceType === 'buero'
+                                                ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
+                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                                                }`}
+                                        >
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${serviceType === 'buero' ? 'bg-primary text-white' : 'bg-gray-200 text-gray-500'}`}>
+                                                <Building2 className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <div className="font-semibold text-lg text-gray-900">Büroreinigung</div>
+                                                <div className="text-gray-500 text-sm mt-0.5">Für Büro & Gewerbe</div>
+                                                <div className="mt-2 text-primary font-bold text-sm">45,00€ / Std</div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
 
 
                                 {/* Hours Selection */}
@@ -128,6 +189,29 @@ export default function Booking() {
                                             </button>
                                         ))}
                                     </div>
+                                    {/* Free extras banner */}
+                                    {hasFreeExtras && (
+                                        <div className="mt-4 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 animate-[scale-in_0.3s_ease-out]">
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <Gift className="w-5 h-5 text-emerald-600" />
+                                                <span className="font-bold text-emerald-800 text-sm">🎁 Gratis Zusatzleistung inklusive!</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center">
+                                                        <Check className="w-3 h-3 text-emerald-600" strokeWidth={3} />
+                                                    </div>
+                                                    <span className="text-emerald-700 text-sm font-medium">Kühlschrankreinigung</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center">
+                                                        <Check className="w-3 h-3 text-emerald-600" strokeWidth={3} />
+                                                    </div>
+                                                    <span className="text-emerald-700 text-sm font-medium">Backofenreinigung</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
 
                                 {/* Date & Time Selection */}
@@ -201,41 +285,68 @@ export default function Booking() {
 
 
                                 {/* Supplies Selection */}
-                                <div>
-                                    <label className="flex items-center space-x-2 text-lg font-semibold text-gray-900 mb-4">
-                                        <Droplets className="w-6 h-6 text-primary" />
-                                        <span>Reinigungsmittel</span>
-                                    </label>
+                                {serviceType === 'privat' && (
+                                    <div>
+                                        <label className="flex items-center space-x-2 text-lg font-semibold text-gray-900 mb-4">
+                                            <Droplets className="w-6 h-6 text-primary" />
+                                            <span>Reinigungsmittel</span>
+                                        </label>
 
-                                    <div className="grid sm:grid-cols-2 gap-4">
+                                        <div className="grid sm:grid-cols-2 gap-4">
+                                            <button
+                                                type="button"
+                                                onClick={() => setNeedsSupplies(false)}
+                                                className={`p-6 rounded-2xl border-2 text-left transition-all ${!needsSupplies
+                                                    ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
+                                                    : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                                                    }`}
+                                            >
+                                                <div className="font-semibold text-lg text-gray-900">Stelle ich selbst</div>
+                                                <div className="text-gray-500 mt-1">Du stellst alle Materialien</div>
+                                                <div className="mt-4 text-primary font-bold">26,90€ / Std</div>
+
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                onClick={() => setNeedsSupplies(true)}
+                                                className={`p-6 rounded-2xl border-2 text-left transition-all ${needsSupplies
+                                                    ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
+                                                    : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                                                    }`}
+                                            >
+                                                <div className="font-semibold text-lg text-gray-900">Bitte mitbringen</div>
+                                                <div className="text-gray-500 mt-1">Wir bringen alles Notwendige mit</div>
+                                                <div className="mt-4 text-primary font-bold">29,90€ / Std</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Discount Selection */}
+                                {serviceType === 'privat' && (
+                                    <div>
                                         <button
                                             type="button"
-                                            onClick={() => setNeedsSupplies(false)}
-                                            className={`p-6 rounded-2xl border-2 text-left transition-all ${!needsSupplies
-                                                ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
-                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+                                            onClick={() => setIsFirstTime(!isFirstTime)}
+                                            className={`w-full p-4 md:p-6 rounded-2xl border-2 text-left transition-all group flex items-start gap-4 ${isFirstTime
+                                                ? 'border-amber-400 bg-amber-50 ring-4 ring-amber-400/10'
+                                                : 'border-gray-100 bg-white hover:border-amber-200 hover:bg-amber-50/30'
                                                 }`}
                                         >
-                                            <div className="font-semibold text-lg text-gray-900">Stelle ich selbst</div>
-                                            <div className="text-gray-500 mt-1">Du stellst alle Materialien</div>
-                                            <div className="mt-4 text-primary font-bold">26,90€ / Std</div>
-
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            onClick={() => setNeedsSupplies(true)}
-                                            className={`p-6 rounded-2xl border-2 text-left transition-all ${needsSupplies
-                                                ? 'border-primary bg-primary/5 ring-4 ring-primary/10'
-                                                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
-                                                }`}
-                                        >
-                                            <div className="font-semibold text-lg text-gray-900">Bitte mitbringen</div>
-                                            <div className="text-gray-500 mt-1">Wir bringen alles Notwendige mit</div>
-                                            <div className="mt-4 text-primary font-bold">29,90€ / Std</div>
+                                            <div className={`w-6 h-6 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors border-2 ${isFirstTime ? 'bg-amber-400 border-amber-400' : 'border-gray-300 group-hover:border-amber-400'}`}>
+                                                {isFirstTime && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
+                                            </div>
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-1">
+                                                    <Sparkles className={`w-5 h-5 ${isFirstTime ? 'text-amber-500' : 'text-gray-400'}`} />
+                                                    <div className="font-bold text-lg text-gray-900">Ich bin Neukunde</div>
+                                                </div>
+                                                <div className="text-gray-600">Teste unseren Service mit <span className="font-bold text-amber-600">20% Rabatt</span> auf die erste Reinigung.</div>
+                                            </div>
                                         </button>
                                     </div>
-                                </div>
+                                )}
 
                                 {/* Price Summary */}
                                 <div className="bg-gray-50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between border border-gray-100">
